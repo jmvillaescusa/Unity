@@ -8,6 +8,7 @@ TagManager:
   - table
   - hole
   - floor
+  - cue
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 	public Slider pwrBar;
 	public Button button;
 	private bool isGrowing = true;
-	private bool barUse = true;
+	private bool barUse;
 	public GameObject cueBall;
     private int maxSpawnPoints = 0;
     public GameObject Rack;
@@ -19,10 +19,11 @@ public class GameManager : MonoBehaviour {
     //Did it Work
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
         maxSpawnPoints = 14;
         spawnBalls();
-	}
+        
+    }
 	
     void spawnBalls () {
         for (int i = 0; i < maxSpawnPoints; i++) {
@@ -37,7 +38,9 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (barUse) {
+        Ball bScript = cueBall.GetComponent<Ball>();
+
+        if (barUse) {
 			if (isGrowing) {
 				pwrBar.value += 0.01f;
 				if (pwrBar.value >= 1) {
@@ -52,22 +55,33 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 
+        if (bScript.isMoving == false) {
+            preLaunch();
+        }
+        else {
+            pwrBar.gameObject.SetActive(false);
+            button.gameObject.SetActive(false);
+        }
+    }
+
+    
+    public void preLaunch() {
+        barUse = true;
         if (Input.GetKey(KeyCode.D)) {
             cueBall.transform.Rotate(Vector3.up * 50 * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A)) {
-            cueBall.transform.Rotate(-Vector3.up * 50 * Time.deltaTime);
-        }
+            cueBall.transform.Rotate(-Vector3.up * 50 * Time.deltaTime); }
+        pwrBar.gameObject.SetActive(true);
+        button.gameObject.SetActive(true);
     }
 
     public void Button() { 
 		barUse = false;
-		pwrBar.gameObject.SetActive(false);
-		button.gameObject.SetActive(false);
         Launch();
     }
     
     public void Launch() {
-        cueBall.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 500 * 1);
+        cueBall.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 500 * pwrBar.value);
     }
 }

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23303163898086690}
   - component: {fileID: 135951725008678092}
   - component: {fileID: 54070406196456308}
+  - component: {fileID: 114891348746682750}
   m_Layer: 0
   m_Name: 13-Ball
   m_TagString: Untagged
@@ -100,6 +101,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &114891348746682750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1559929461809986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7611b8b2cdf7924b847e070e02a790f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  b: 0
 --- !u!135 &135951725008678092
 SphereCollider:
   m_ObjectHideFlags: 1

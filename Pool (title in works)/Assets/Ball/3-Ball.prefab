@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23933071515942386}
   - component: {fileID: 135146632900800250}
   - component: {fileID: 54280208228492060}
+  - component: {fileID: 114299966698614652}
   m_Layer: 0
   m_Name: 3-Ball
   m_TagString: Untagged
@@ -100,6 +101,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &114299966698614652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1733889860035632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7611b8b2cdf7924b847e070e02a790f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  b: 1
 --- !u!135 &135146632900800250
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 	public List<GameObject> balls;
     public List<GameObject> spawnPoints;
 	public int numTurn = 0;
-	public int playerTurn = 0;
+	public bool playerOneTurn = true;
 	public Slider pwrBar;
 	public Button button;
 	private bool isGrowing = true;
@@ -15,16 +15,33 @@ public class GameManager : MonoBehaviour {
 	public GameObject cueBall;
     private int maxSpawnPoints = 0;
     public GameObject Rack;
+    public enum ballType
+    {
+        STRIPES, 
+        SOLIDS,
+        NONE
+    }
+    private ballType[] playerBall;
+    public bool isFirstSunk = false;
 
-    //Did it Work
 
-	// Use this for initialization
-	public void Start () {
+
+    // Use this for initialization
+    public void Start () {
         maxSpawnPoints = 14;
         spawnBalls();
-        
+        playerBall = new ballType[2];
+        for (int i = 0; i < playerBall.Length; i++)
+        {
+            playerBall[i] = ballType.NONE;
+        }
     }
 	
+    public void ballTypeAssign (int i, ballType type)
+    {
+        playerBall[i] = type;
+    }
+
     void spawnBalls () {
         for (int i = 0; i < maxSpawnPoints; i++) {
             int rNum = Random.Range(0, balls.Count - 1);
@@ -68,10 +85,10 @@ public class GameManager : MonoBehaviour {
     public void preLaunch() {
         barUse = true;
         if (Input.GetKey(KeyCode.D)) {
-            cueBall.transform.Rotate(Vector3.up * 50 * Time.deltaTime);
+            cueBall.transform.Rotate(Vector3.up * 30 * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A)) {
-            cueBall.transform.Rotate(-Vector3.up * 50 * Time.deltaTime); }
+            cueBall.transform.Rotate(-Vector3.up * 30 * Time.deltaTime); }
         pwrBar.gameObject.SetActive(true);
         button.gameObject.SetActive(true);
     }

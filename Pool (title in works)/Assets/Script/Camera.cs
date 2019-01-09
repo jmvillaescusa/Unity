@@ -57,7 +57,14 @@ public class Camera : MonoBehaviour {
         {
             p_Velocity += new Vector3(0, 0, -1);
         }
-
+        if (Input.GetKey(KeyCode.A))
+        {
+            p_Velocity += new Vector3(-1, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            p_Velocity += new Vector3(1, 0, 0);
+        }
         return p_Velocity;
     }
 

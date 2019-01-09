@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject cueBall;
     private int maxSpawnPoints = 0;
     public GameObject Rack;
+    public GameObject ballParent;
     public enum ballType
     {
         STRIPES, 
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour {
     }
     private ballType[] playerBall;
     public bool isFirstSunk = false;
+    public bool newShot;
 
 
 
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour {
         Ball bScript = cueBall.GetComponent<Ball>();
 
         if (barUse) {
-			if (isGrowing) {
+            if (isGrowing) {
 				pwrBar.value += 0.01f;
 				if (pwrBar.value >= 1) {
 					isGrowing = false;
@@ -83,22 +85,32 @@ public class GameManager : MonoBehaviour {
 
     
     public void preLaunch() {
+        if (newShot)
+        {
+            cueBall.transform.rotation = ballParent.transform.rotation;
+            newShot = false;
+        }
         barUse = true;
-        if (Input.GetKey(KeyCode.D)) {
+        if (Input.GetKey(KeyCode.E)) {
             cueBall.transform.Rotate(Vector3.up * 30 * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.A)) {
-            cueBall.transform.Rotate(-Vector3.up * 30 * Time.deltaTime); }
+         if (Input.GetKey(KeyCode.Q)) {
+            cueBall.transform.Rotate(-Vector3.up * 30 * Time.deltaTime);
+        }
         pwrBar.gameObject.SetActive(true);
         button.gameObject.SetActive(true);
     }
 
     public void Button() { 
 		barUse = false;
+        newShot = false;
         Launch();
     }
     
     public void Launch() {
-        cueBall.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 500 * pwrBar.value);
+        newShot = false;
+        cueBall.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 625 * pwrBar.value);
+        gameObject.transform.parent = null;
+
     }
 }

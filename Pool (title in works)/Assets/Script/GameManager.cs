@@ -99,6 +99,6 @@ public class GameManager : MonoBehaviour {
     }
     
     public void Launch() {
-        cueBall.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 750 * pwrBar.value);
+        cueBall.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 500 * pwrBar.value);
     }
 }

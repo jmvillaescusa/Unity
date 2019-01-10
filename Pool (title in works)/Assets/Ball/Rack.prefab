@@ -564,6 +564,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114057314818903124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -578,6 +579,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114078503560725672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -592,6 +594,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114167654720195836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -606,6 +609,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114203261178876184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -620,6 +624,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114253986261154014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -634,6 +639,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114359110183226940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -648,6 +654,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114368471543737678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -659,7 +666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7611b8b2cdf7924b847e070e02a790f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bType: 0
+  bType: 1
 --- !u!114 &114394535718597342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -674,6 +681,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114472642687854730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -688,6 +696,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114638026147283746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -702,6 +711,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114665409841775396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -716,6 +726,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114819307292199524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -730,6 +741,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114865904252432260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -744,6 +756,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!114 &114941417477619634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -758,6 +771,7 @@ MonoBehaviour:
   isOffTable: 0
   isMoving: 0
   lRend: {fileID: 0}
+  ballParent: {fileID: 0}
 --- !u!135 &135526357119944584
 SphereCollider:
   m_ObjectHideFlags: 1

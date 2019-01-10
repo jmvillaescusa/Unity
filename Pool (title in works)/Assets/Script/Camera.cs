@@ -4,15 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Camera : MonoBehaviour {
+public class camera : MonoBehaviour {
     public float mainSpeed = 10.0f; 
     public float camSens = 0.25f; 
     private Vector3 lastMouse = new Vector3(255, 255, 255); 
     private float totalRun = 1.0f;
+    private Vector3 mousePos;
 
     public GameObject cam1;
     public GameObject cam2;
     public Button toggle;
+
+    private GameManager gameMgr;
 
     void Start() {
         cam1.SetActive(true);
@@ -39,6 +42,7 @@ public class Camera : MonoBehaviour {
             return;
         }
     }
+
 
     private Vector3 moveCamera()
     {
@@ -68,16 +72,18 @@ public class Camera : MonoBehaviour {
         return p_Velocity;
     }
 
-    public void freeToggle()
+    public void camToggle()
     {
         if (cam1.activeInHierarchy) {
             cam1.SetActive(false);
             cam2.SetActive(true);
+            GameObject.Find("camToggle").GetComponentInChildren<Text>().text = "Free Camera";
         }
         else
         {
             cam1.SetActive(true);
             cam2.SetActive(false);
+            GameObject.Find("camToggle").GetComponentInChildren<Text>().text = "Top Camera";
         }
         
     }

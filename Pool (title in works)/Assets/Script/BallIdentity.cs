@@ -23,35 +23,26 @@ public class BallIdentity : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "hole")
-        {
-            if (gameManager.isFirstSunk == false)
-            {
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "hole") {
+            if (gameManager.isFirstSunk == false) {
                 gameManager.isFirstSunk = true;
-                if (gameManager.playerOneTurn == true)
-                {
-                    if (bType == ballType.SOLIDS)
-                    {
+                if (gameManager.playerOneTurn == true) {
+                    if (bType == ballType.SOLIDS) {
                         gameManager.ballTypeAssign(0, GameManager.ballType.SOLIDS);
                         gameManager.ballTypeAssign(1, GameManager.ballType.STRIPES);
                     }
-                    else
-                    {
+                    else {
                         gameManager.ballTypeAssign(1, GameManager.ballType.SOLIDS);
                         gameManager.ballTypeAssign(0, GameManager.ballType.STRIPES);
                     }
                 }
-                else
-                {
-                    if (bType == ballType.SOLIDS)
-                    {
+                else {
+                    if (bType == ballType.SOLIDS) {
                         gameManager.ballTypeAssign(1, GameManager.ballType.SOLIDS);
                         gameManager.ballTypeAssign(0, GameManager.ballType.STRIPES);
                     }
-                    else
-                    {
+                    else {
                         gameManager.ballTypeAssign(0, GameManager.ballType.SOLIDS);
                         gameManager.ballTypeAssign(1, GameManager.ballType.STRIPES);
                     }

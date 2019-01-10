@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 490527587}
   - component: {fileID: 490527586}
   m_Layer: 5
-  m_Name: switchCam
+  m_Name: camToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -603,7 +603,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1572293285}
-        m_MethodName: freeToggle
+        m_MethodName: camToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -730,7 +730,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.77, y: 19.63, z: -11.29}
+  m_LocalPosition: {x: 3.77, y: 17.08, z: -11.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -855,7 +855,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4482921758969690, guid: 7ee34575a7ae2d24ca53dc9b770cba72, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.164
+      value: -5.05
       objectReference: {fileID: 0}
     - target: {fileID: 4482921758969690, guid: 7ee34575a7ae2d24ca53dc9b770cba72, type: 2}
       propertyPath: m_LocalPosition.y
@@ -884,6 +884,10 @@ Prefab:
     - target: {fileID: 4482921758969690, guid: 7ee34575a7ae2d24ca53dc9b770cba72, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263079411822178, guid: 7ee34575a7ae2d24ca53dc9b770cba72, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.238
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee34575a7ae2d24ca53dc9b770cba72, type: 2}
@@ -1129,9 +1133,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 60992199}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1353,6 +1357,14 @@ Prefab:
       propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4980149918054948, guid: e170f16260cdff54b8ba895c3190bd3d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980149918054948, guid: e170f16260cdff54b8ba895c3190bd3d, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e170f16260cdff54b8ba895c3190bd3d, type: 2}
   m_IsPrefabAsset: 0
@@ -1490,6 +1502,7 @@ LineRenderer:
   m_Positions:
   - {x: 13.41, y: -0.01, z: -11.02}
   - {x: -6.8375998, y: -0.01, z: -11.027301}
+  - {x: -6.8375998, y: -0.01, z: -11.027301}
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 1
@@ -1538,7 +1551,7 @@ LineRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 45
-    numCapVertices: 0
+    numCapVertices: 45
     alignment: 0
     textureMode: 0
     generateLightingData: 0
@@ -1611,6 +1624,8 @@ MonoBehaviour:
   ballParent: {fileID: 1760354425}
   isFirstSunk: 0
   newShot: 0
+  bScript: {fileID: 1497824878}
+  firstShot: 1
 --- !u!4 &1572293284
 Transform:
   m_ObjectHideFlags: 0
@@ -1787,7 +1802,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Free
+  m_Text: Top Camera
 --- !u!222 &1678721864
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1809,7 +1824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1760354426}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: spawnCue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

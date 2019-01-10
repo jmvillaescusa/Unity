@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour {
     private int maxSpawnPoints = 0;
     public GameObject Rack;
     public GameObject ballParent;
-    public enum ballType
-    {
+    public enum ballType {
         STRIPES, 
         SOLIDS,
         NONE
@@ -25,7 +24,9 @@ public class GameManager : MonoBehaviour {
     private ballType[] playerBall;
     public bool isFirstSunk = false;
     public bool newShot;
-
+    public Ball bScript;
+    private Vector3 mousePos;
+    public bool firstShot = true;
 
 
     // Use this for initialization
@@ -33,14 +34,14 @@ public class GameManager : MonoBehaviour {
         maxSpawnPoints = 14;
         spawnBalls();
         playerBall = new ballType[2];
-        for (int i = 0; i < playerBall.Length; i++)
-        {
+        for (int i = 0; i < playerBall.Length; i++) {
             playerBall[i] = ballType.NONE;
         }
+        
     }
-	
-    public void ballTypeAssign (int i, ballType type)
-    {
+
+
+    public void ballTypeAssign (int i, ballType type) {
         playerBall[i] = type;
     }
 
@@ -57,12 +58,10 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        Ball bScript = cueBall.GetComponent<Ball>();
-
         if (barUse) {
             if (isGrowing) {
 				pwrBar.value += 0.01f;
-				if (pwrBar.value >= 1) {
+				if (pwrBar.value >= 2) {
 					isGrowing = false;
 				}
 			}
@@ -81,6 +80,8 @@ public class GameManager : MonoBehaviour {
             pwrBar.gameObject.SetActive(false);
             button.gameObject.SetActive(false);
         }
+
+
     }
 
     
@@ -94,7 +95,7 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKey(KeyCode.E)) {
             cueBall.transform.Rotate(Vector3.up * 30 * Time.deltaTime);
         }
-         if (Input.GetKey(KeyCode.Q)) {
+        if (Input.GetKey(KeyCode.Q)) {
             cueBall.transform.Rotate(-Vector3.up * 30 * Time.deltaTime);
         }
         pwrBar.gameObject.SetActive(true);
@@ -106,11 +107,11 @@ public class GameManager : MonoBehaviour {
         newShot = false;
         Launch();
     }
-    
-    public void Launch() {
-        newShot = false;
-        cueBall.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 625 * pwrBar.value);
-        gameObject.transform.parent = null;
 
+    public void Launch()
+    {
+        newShot = false;
+        cueBall.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 500 * 1);
+        gameObject.transform.parent = null;
     }
 }

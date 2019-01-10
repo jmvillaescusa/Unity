@@ -11,7 +11,7 @@ public class Ball : MonoBehaviour {
     private RaycastHit hit;
     public LineRenderer lRend;
     public GameObject ballParent;
-  
+    private GameManager M;
 
 
     // Use this for initialization
@@ -20,6 +20,7 @@ public class Ball : MonoBehaviour {
             preLocations[i] = Vector3.zero;
         }
     }
+
     
     private void OnDrawGizmosSelected()
     {
@@ -57,7 +58,9 @@ public class Ball : MonoBehaviour {
         {
             if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, 1))
             {
-                //lRend.SetPosition(2, Vector3.Reflect(hit.point, hit.normal));
+                Vector3 incomingV = ballParent.transform.position;
+                Vector3 reflectV = Vector3.Reflect(incomingV, hit.normal);
+                lRend.SetPosition(2, hit.normal);
             }
 
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), 100))

@@ -21,13 +21,6 @@ public class Ball : MonoBehaviour {
         }
     }
 
-    
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(this.transform.position, 0.26f);
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -58,16 +51,13 @@ public class Ball : MonoBehaviour {
         {
             if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, 1))
             {
-                Vector3 incomingV = ballParent.transform.position;
-                Vector3 reflectV = Vector3.Reflect(incomingV, hit.normal);
-                lRend.SetPosition(2, hit.normal);
+
             }
 
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), 100))
             {
                 lRend.SetPosition(0, transform.position);
                 lRend.SetPosition(1, hit.point);
-                
             }   
         }
 	}

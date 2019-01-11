@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 	private bool isGrowing = true;
 	private bool barUse;
 	public GameObject cueBall;
-    private int maxSpawnPoints = 0;
+    private int maxSpawnPoints = 14;
     public GameObject Rack;
     public GameObject ballParent;
     public enum ballType {
@@ -21,17 +21,18 @@ public class GameManager : MonoBehaviour {
         SOLIDS,
         NONE
     }
+    private ballType type;
     private ballType[] playerBall;
     public bool isFirstSunk = false;
     public bool newShot;
     public Ball bScript;
     private Vector3 mousePos;
     public bool firstShot = true;
+    private BallIdentity BI;
 
 
     // Use this for initialization
     public void Start () {
-        maxSpawnPoints = 14;
         spawnBalls();
         playerBall = new ballType[2];
         for (int i = 0; i < playerBall.Length; i++) {
@@ -48,11 +49,23 @@ public class GameManager : MonoBehaviour {
     void spawnBalls () {
         for (int i = 0; i < maxSpawnPoints; i++) {
             int rNum = Random.Range(0, balls.Count - 1);
-            int rNumTwo = Random.Range(0, spawnPoints.Count - 1);
-            GameObject temp = Instantiate(balls[rNum], spawnPoints[rNumTwo].transform.position, Quaternion.Euler(130,0,90));
-            Destroy(spawnPoints[rNumTwo]);
-            spawnPoints.Remove(spawnPoints[rNumTwo]);
+            //int rNumTwo = Random.Range(0, spawnPoints.Count - 1);
+            /*if (i == 8)
+            {
+                if (balls[rNum].GetComponent<BallIdentity.ballType>() == BallIdentity.ballType.SOLIDS)
+                {
+                    GameObject temp = Instantiate(balls[rNum], spawnPoints[i].transform.position, Quaternion.Euler(130, 0, 90));
+                }
+                else if  (balls[rNum].GetComponent<BallIdentity.ballType>() == BallIdentity.ballType.STRIPES)
+                {
+                    GameObject temp = Instantiate(balls[rNum], spawnPoints[i].transform.position, Quaternion.Euler(130, 0, 90));
+                }
+            }*/
+            GameObject temp = Instantiate(balls[rNum], spawnPoints[i].transform.position, Quaternion.Euler(130, 0, 90));
+            //Destroy(spawnPoints[rNumTwo]);
+            //spawnPoints.Remove(spawnPoints[rNumTwo]);
             balls.Remove(balls[rNum]);
+            Debug.Log(rNum+" "+ i);
         }
     }
 
@@ -111,7 +124,7 @@ public class GameManager : MonoBehaviour {
     public void Launch()
     {
         newShot = false;
-        cueBall.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 500 * 1);
+        cueBall.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 500 * pwrBar.value);
         gameObject.transform.parent = null;
     }
 }
